@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+    public bool KnockFromRight;
+
 
     private bool isWallSliding;
     private float wallSlidingSpeed = 2f;
@@ -68,6 +73,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(KBCounter <= 0)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        else
+        {
+            if(KnockFromRight == true)
+            {
+                rb.velocity = new Vector2(-KBForce, KBForce);
+            }
+            if(KnockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce);
+            }
+
+            KBCounter -= Time.deltaTime;
+        }
+
+
         if (isDashing)
         {
             return;
