@@ -5,13 +5,13 @@ using UnityEngine;
 public class CrouchScript : MonoBehaviour
 {
     public float crouchHeight;
-    private Vector3 normalHeight;
+    private float normalHeight;
     private float yInput;
 
 
     private void Start()
     {
-        normalHeight = transform.localScale;
+        normalHeight = transform.localScale.y;
     }
 
     private void Update()
@@ -21,14 +21,13 @@ public class CrouchScript : MonoBehaviour
         if (yInput < 0)
         {
             if(transform.localScale.y != crouchHeight)
-            transform.localScale=new Vector3(normalHeight.x, crouchHeight, normalHeight.z);
+            transform.localScale=new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
         }
         else
         {
-            if(transform.localScale.y != normalHeight.y)
-            transform.localScale = normalHeight;
+            if(transform.localScale.y != normalHeight)
+            transform.localScale=new Vector3(transform.localScale.x, normalHeight, transform.localScale.z);
 
         }
     }
-
 }
