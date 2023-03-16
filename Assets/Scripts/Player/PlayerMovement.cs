@@ -4,22 +4,16 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     private float horizontal;
     private float speed = 15f;
-    private float jumpingPower = 25f;
+    private float jumpingPower = 15f;
     private bool isFacingRight = true;
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 60f;
+    private float dashingPower = 24f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 0.2f;
-
-    public float KBForce;
-    public float KBCounter;
-    public float KBTotalTime;
-    public bool KnockFromRight;
+    private float dashingCooldown = 1f;
 
 
     private bool isWallSliding;
@@ -74,25 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(KBCounter <= 0)
-        {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        }
-        else
-        {
-            if(KnockFromRight == true)
-            {
-                rb.velocity = new Vector2(-KBForce, KBForce);
-            }
-            if(KnockFromRight == false)
-            {
-                rb.velocity = new Vector2(KBForce, KBForce);
-            }
-
-            KBCounter -= Time.deltaTime;
-        }
-
-
         if (isDashing)
         {
             return;
@@ -104,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
