@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     private float horizontal;
     private float speed = 15f;
     private float jumpingPower = 25f;
