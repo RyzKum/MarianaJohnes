@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    public static event Action OnPlayerDeath;
+
+
     public int maxHealth = 3;
     public int health;
+
+
 
     public SpriteRenderer playerSr;
     public PlayerMovement playerMovement;
@@ -23,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         {
             playerSr.enabled = false;
             playerMovement.enabled = false;
+            OnPlayerDeath?.Invoke();
         }
     }
 }
