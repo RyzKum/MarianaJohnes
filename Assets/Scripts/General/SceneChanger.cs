@@ -16,6 +16,14 @@ public class SceneChanger : MonoBehaviour
     {
         yield return new WaitForSeconds((float)videoPlayer.clip.length);
 
-        SceneManager.LoadScene("LevelOne");
+        SceneManager.LoadScene(1);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

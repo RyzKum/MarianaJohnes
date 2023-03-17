@@ -29,7 +29,9 @@ public class Audio : MonoBehaviour
 
     }
 
-    private void Update()
+private void Update()
+{
+    if (source != null) // Check if the AudioSource object exists
     {
         if (Input.GetKeyDown("k"))
         {
@@ -38,6 +40,7 @@ public class Audio : MonoBehaviour
         source.volume = volume;
         source.pitch = pitch;
     }
+}
     public void PlayandPause()
     {
         if (!source.isPlaying)
