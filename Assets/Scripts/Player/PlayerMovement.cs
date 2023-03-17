@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private float horizontal;
-    private float speed = 15f;
-    private float jumpingPower = 25f;
+    private float speed = 13f;
+    private float jumpingPower = 20f;
     private bool isFacingRight = true;
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 60f;
+    private float dashingPower = 100f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 0.2f;
 

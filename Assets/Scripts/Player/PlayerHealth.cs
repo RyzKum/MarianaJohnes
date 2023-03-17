@@ -28,8 +28,6 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            playerSr.enabled = false;
-            playerMovement.enabled = false;
             OnPlayerDeath?.Invoke();
         }
     }

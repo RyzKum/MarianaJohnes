@@ -33,6 +33,4 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-
-
 }
