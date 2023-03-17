@@ -13,6 +13,8 @@ Shader "Custom/SpriteScrollingTransparency"
     {
         Tags {"Queue"="Transparent" "RenderType"="Transparent"}
 
+        Blend SrcAlpha OneMinusSrcAlpha
+
         Pass
         {
             CGPROGRAM
@@ -52,7 +54,7 @@ Shader "Custom/SpriteScrollingTransparency"
                 uv += float2(_ScrollSpeedX, _ScrollSpeedY) * _Time.y;
                 fixed4 col = tex2D(_MainTex, uv);
                 col.a *= _Color.a * _Alpha;
-                col.rgb *= col.a;
+                //col.rgb *= col.a;
                 return col;
             }
             ENDCG
